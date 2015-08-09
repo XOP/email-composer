@@ -1,0 +1,20 @@
+{
+    "port": 3000,
+    "browsers" : [
+        "> 1%",
+        "last 20 versions",
+        "BlackBerry > 0",
+        "Android > 0"
+    ],
+    "paths" : {
+        "index" : "image-data.html",
+        "css" : {
+            "src" : "assets/css",
+            "dest" : "public/css"
+        },
+        "img" : {
+            "src" : "assets/img",
+            "dest" : "public/img"
+        }
+    }
+}

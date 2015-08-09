@@ -1,0 +1,13 @@
+# dev
+node_modules
+bower_components
+*.iml
+*.log
+*.zip
+.idea
+
+# static
+public
+
+# special
+secret.json

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<link rel="stylesheet" href="/node_modules/skeleton.css/skeleton.css"/>
+<body>
+<main>
+
+    <div class="container">
+
+        <h1>Email send form</h1>
+
+        <form id="form">
+            <label for="mail">Email</label>
+            <input class="u-full-width" type="text" id="mail" value="<%= email %>"/>
+            <button id="send">Send</button>
+        </form>
+    </div>
+
+</main>
+
+<script>
+    var form = document.getElementById('form');
+    var input = document.getElementById('mail');
+
+    form.onsubmit = function() {
+        if (this.hid == "bulk") {
+            location = "/submit/" + encodeURIComponent(input.value);
+        }
+
+        return false;
+    }
+</script>
+</body>
+</html>
