@@ -21,8 +21,6 @@ var production = $.util.env.p || $.util.env.prod;
 // autoprefixer settings
 var Browsers = config.browsers;
 
-var templateData = require('./data.json');
-
 var stylusOptions = {
     use: [autoprefixer({browsers: Browsers})],
     paths: [paths.css.src],
@@ -42,35 +40,53 @@ gulp.task('styles', function () {
 
 
 //
+// replace in styles
+gulp.task('replace', function (){
+   return gulp.src('./build/**/*.css')
+       .pipe($.plumber())
+       .pipe($.replaceTask({
+           patterns: [
+               {
+                   match: 'margin',
+                   replacement: 'Margin'
+               }
+           ],
+           usePrefix: false // off the @@ prefix rule
+       }))
+       .pipe(gulp.dest(paths.css.dest));
+});
+
+
+//
 // inline styles
 
 // inline
 gulp.task('inject', function () {
-    return gulp.src('./public/*.html')
+    return gulp.src('./build/*.html')
         .pipe($.inlineCss({
             removeStyleTags: false,
             applyStyleTags: false
         }))
-        .pipe(gulp.dest('public/'));
+        .pipe(gulp.dest('build/'));
 });
 
 // full task
 gulp.task('inline', ['inject'], function(cb){
     return del([
-        paths.css.dest
+        paths.css.build
     ], cb);
 });
 
 
 //
 // compile hbs templates
-
-// assemble setup
-assemble.layouts('./templates/layouts/*.hbs');
-assemble.partials('./templates/partials/*.hbs');
-
-// render
 gulp.task('render', function () {
+    // assemble setup
+    assemble.layouts('./templates/layouts/*.hbs');
+    assemble.partials('./templates/partials/*.hbs');
+    assemble.data(['./data/email/**/*.json']);
+
+    // render
     gulp.src('./templates/email/*.hbs')
         .pipe($.assemble(assemble, {
             layout: 'default'
@@ -87,6 +103,19 @@ gulp.task('images', function(){
         .pipe(gulp.dest(paths.img.dest));
 });
 
+
+//
+// html minify
+gulp.task('minify', function(){
+    return gulp.src('./build/*.html')
+        .pipe($.minifyHtml({
+            conditionals: true,
+            empty: true,
+            quotes: true,
+            spare: true
+        }))
+        .pipe(gulp.dest('build/'));
+});
 
 //
 // browser sync
@@ -109,31 +138,47 @@ gulp.task('bs-reload', function(){
 
 //
 // cleanup
-gulp.task('clean', function(cb){
+
+// dev
+gulp.task('clean-dev', function(cb){
     return del([
-//        'public/*.json'
         'public/*.html',
         paths.css.dest,
         paths.img.dest
     ], cb);
 });
 
+// build
+gulp.task('clean-build', function(cb){
+    return del([
+        'build/**/*.*'
+    ], cb);
+});
+
 
 //
-// build
-gulp.task('build', ['clean'], function(){
-    runSequence(
-        'render',
-        'styles',
-        'images',
-        'inline'
-    );
+// copy dev to build
+gulp.task('copy', function(){
+    return gulp.src('./public/**/*.*')
+        .pipe(gulp.dest('build/'))
 });
 
 
 //
 // build
-gulp.task('dev', ['clean'], function(){
+gulp.task('build', ['clean-build'], function(){
+    runSequence(
+        'copy',
+        'replace',
+        'inline',
+        'minify'
+    );
+});
+
+
+//
+// dev
+gulp.task('dev', ['clean-dev'], function(){
     runSequence(
         'render',
         'styles',
@@ -160,9 +205,9 @@ gulp.task('default', ['dev'], function(){
     runSequence(
         'sync',
         function(){
-//            gulp.watch('./src/*.html', ['html']);
-//            gulp.watch('./data.json', ['bs-reload']);
-            gulp.watch('./templates/**/*.*', ['render']);
+            gulp.watch('./templates/**/*.hbs', ['render']);
+            gulp.watch('./data/**/*.json', ['render']);
+            gulp.watch('./' + paths.img.src + '/**/*.*', ['images']);
             gulp.watch('./' + paths.css.src + '/**/*.styl', ['styles']);
         });
 });

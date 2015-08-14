@@ -10,7 +10,8 @@
         "index" : "image-data.html",
         "css" : {
             "src" : "assets/css",
-            "dest" : "public/css"
+            "dest" : "public/css",
+            "build" : "build/css"
         },
         "img" : {
             "src" : "assets/img",

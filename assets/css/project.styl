@@ -1,0 +1,129 @@
+/* Project
+---------------------------------------------------------------------------------- */
+
+.l {
+    width: $mw;
+    }
+
+/* Top
+-------------------------------------------------- */
+
+.l-top-l,
+.l-top-r {
+    width: $grid;
+    line-height: $line * $lh;
+    }
+
+.l-top-l {
+    border-right: 1px solid $bg-border;
+    }
+
+.l-top-c {
+    width: $mw - $grid * 2;
+    background-color: $bg-main;
+    border-top: 1px solid $bg-border;
+    }
+
+.l-top-r {
+    border-left: 1px solid $bg-border;
+    }
+
+/* /Top */
+
+
+/* Image
+-------------------------------------------------- */
+
+.l-img img {
+    width: 100%;
+    max-width: $mw + $grid * 2;
+    height: auto;
+    }
+
+/* /Image */
+
+
+/* Content
+-------------------------------------------------- */
+
+/* Main */
+
+.l-main-l {
+    width: $grid;
+    border-right: 1px solid $bg-border;
+    }
+
+.l-main-c {
+    width: $mw - $grid * 2;
+    background-color: $bg-main;
+    border-bottom: 1px solid $bg-border;
+    }
+
+.l-main-r {
+    width: $grid;
+    border-left: 1px solid $bg-border;
+    }
+
+/* /Main */
+
+/* Body */
+
+.l-body-l,
+.l-body-r {
+    width: $grid * 2;
+    }
+
+.l-body-c {
+    padding-top: $grid;
+    padding-bottom: $grid;
+
+    p {
+        text-align: center;
+        }
+    }
+
+/* /Body */
+
+/* /Content */
+
+
+/* Footer
+-------------------------------------------------- */
+
+/* Decor */
+
+.l-hr td {
+    line-height: $line;
+    font-size: $line;
+    }
+
+/* /Decor */
+
+/* Text */
+
+.l-foot-c {
+    padding: ($grid / 2) $grid;
+
+    p {
+        margin: 0;
+        font: $fs-s $ff;
+        color: $c-alt;
+        text-align: center;
+
+        a {
+            font: $fs-s $ff;
+            color: $c-alt;
+
+            & > span {
+                color: $c-alt;
+                }
+            }
+        }
+    }
+
+/* /Text */
+
+/* /Footer */
+
+/* /Project
+---------------------------------------------------------------------------------- */

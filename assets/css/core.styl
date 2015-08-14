@@ -1,33 +1,144 @@
 /* Core
 ---------------------------------------------------------------------------------- */
 
+/* Reset
+-------------------------------------------------- */
+
+body {
+    padding: 0;
+    margin: 0;
+    min-width: 100%!important;
+    background-color: $bg-body;
+    }
+
+table {
+    border-spacing: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-family: $ff;
+    color: $c-main;
+    }
+
+    td {
+        padding: 0;
+        border: 0;
+        }
+
+img {
+    display: block;
+    border: 0;
+    }
+
+/* /Reset */
+
+
+/* Layout
+-------------------------------------------------- */
+
+.wrapper {
+    width: 100%;
+    table-layout: fixed;
+
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    }
+
+.webkit {
+    max-width: $mw + $grid * 2;
+    }
+
+.outer {
+    margin: 0 auto;
+    width: 100%;
+    max-width: $mw + $grid * 2;
+    }
+
+.content {
+    padding: $grid*2 $grid;
+    }
+
+/* /Layout */
+
+
+/* Links
+-------------------------------------------------- */
+
+a {
+    color: $c-brand;
+    font: $fs-n $ff;
+
+    line-height: $line * $lh;
+    -webkit-text-size-adjust: none;
+    text-decoration: none !important;
+
+
+    & > span {
+        color: $c-brand;
+        }
+    }
+
+/* /Links */
+
+
+/* Text
+-------------------------------------------------- */
+
+p {
+    margin: 0;
+    margin-bottom: $grid;
+
+    color: $c-main;
+    font: $fs-n $ff;
+
+    line-height: $line * $lh;
+    -webkit-text-size-adjust: none;
+
+
+    &.lead-text {
+        font-size: $fs-l;
+        }
+    }
+
+/* /Text */
+
+
 /* Button
 -------------------------------------------------- */
 
-.button,
-* [lang~="x-button-w"] {
+.button {
     text-align: center;
     }
 
-.button a,
-* [lang~="x-button"] {
-    display: inline-block;
+    .button-cnt {
+        margin: 0 auto;
 
-    border-radius: 3px;
-    border-top: $line solid $bg-brand;
-    border-bottom: $line solid $bg-brand;
-    border-right: $line*2 solid $bg-brand;
-    border-left: $line*2 solid $bg-brand;
+        a {
+            display: inline-block;
 
-    background-color: $bg-brand;
-    font-size: $fz-l;
-    font-family: $ff;
-    color: $c-inv;
-    text-decoration: none;
-    }
+            border-radius: 3px;
+            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .8);
+
+            border-top: $line solid $bg-special;
+            border-bottom: $line solid $bg-special;
+            border-right: $line*3 solid $bg-special;
+            border-left: $line*3 solid $bg-special;
+
+            background-color: $bg-special;
+            font-size: $fs-l;
+            font-family: $ff;
+            color: $c-inv;
+            text-decoration: none !important;
+            cursor: pointer;
+
+
+            & > span {
+                color: $c-inv;
+                }
+            }
+        }
 
 /* /Button */
-
 
 /* /Core
 ---------------------------------------------------------------------------------- */

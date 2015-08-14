@@ -21,9 +21,30 @@ gulp build
 gulp
 ```
 
+### Templates and data
+
+Due to [assemble](http://assemble.io/) usage, data organized and stored respectfully.
+Consider the following structure:
+
+```
+templates
+    email
+        foo.hbs
+        bar.hbs
+```
+
+Data should be presented as:
+
+```
+data
+    email
+        foo
+            data.json
+        bar
+            data.json
+```
 
 ## Sending platform
 
-```
-TODO
-```
+Composer uses [Mailgun](https://mailgun.com/app/dashboard) API to send emails,
+so it will need private data, contained in **secret.json**, located in root folder.

@@ -8,6 +8,9 @@ bower_components
 
 # static
 public
+build
+data
 
 # special
 secret.json
+_tmp

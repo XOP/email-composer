@@ -13,8 +13,16 @@
         <h1>Email send form</h1>
 
         <form id="form">
-            <label for="mail">Email</label>
-            <input class="u-full-width" type="text" id="mail" value="<%= email %>"/>
+
+            <label for="from">From</label>
+            <input class="u-full-width" type="text" id="from" autocomplete="true" value="<%= from %>"/>
+
+            <label for="subject">Subject</label>
+            <input class="u-full-width" type="text" id="subject" autocomplete="true" value="<%= subject %>"/>
+
+            <label for="mail">To</label>
+            <input class="u-full-width" type="text" id="mail" autocomplete="true" value="<%= email %>"/>
+
             <button id="send">Send</button>
         </form>
     </div>
@@ -23,12 +31,15 @@
 
 <script>
     var form = document.getElementById('form');
-    var input = document.getElementById('mail');
+    var from = document.getElementById('from');
+    var subject = document.getElementById('subject');
+    var mail = document.getElementById('mail');
 
     form.onsubmit = function() {
-        if (this.hid == "bulk") {
-            location = "/submit/" + encodeURIComponent(input.value);
-        }
+        location = "/submit?" +
+                "from=" + encodeURIComponent(from.value)
+                + "&subject=" + encodeURIComponent(subject.value)
+                + "&mail=" + encodeURIComponent(mail.value);
 
         return false;
     }
