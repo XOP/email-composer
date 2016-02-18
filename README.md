@@ -2,6 +2,10 @@
 
 Automated process for building and testing emails.
 
+**WARNING**   
+**This should be refactored in order to work with the newest Assemble API**  
+**Or better drop Assemble due to it's unstable nature completely**  
+**And use another gulp handlebars compilation**
 
 ## Installation
 
