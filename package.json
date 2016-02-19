@@ -1,6 +1,6 @@
 {
   "name": "email-composer",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Automated process for building and testing emails",
   "main": "gulpfile.js",
   "repository": {

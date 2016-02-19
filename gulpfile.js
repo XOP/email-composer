@@ -1,4 +1,3 @@
-var fs = require('fs');
 var gulp = require('gulp');
 
 // auto-load gulp-* plugins
@@ -12,7 +11,7 @@ var browserSync = require('browser-sync');
 
 var reload = browserSync.reload;
 var runSequence = require('run-sequence');
-var config = require('./config.json');
+var config = require('./config');
 
 var paths = config.paths;
 var production = $.util.env.p || $.util.env.prod;
