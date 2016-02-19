@@ -7,7 +7,7 @@
         "Android > 0"
     ],
     "paths" : {
-        "index" : "image-data.html",
+        "index" : "default.html",
         "css" : {
             "src" : "assets/css",
             "dest" : "public/css",

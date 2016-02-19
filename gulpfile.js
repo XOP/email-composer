@@ -6,12 +6,12 @@ var $ = require('gulp-load-plugins')();
 
 //
 // all others
+var getTplData = require('./getTplData');
 var del = require('del');
 var autoprefixer = require('autoprefixer-stylus');
 
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
-var merge = require('merge2');
 var runSequence = require('run-sequence');
 
 var config = require('./config.json');
@@ -80,14 +80,11 @@ gulp.task('inline', ['inject'], function(cb){
 
 //
 // compile hbs templates
-
-//
-
 gulp.task('render', function () {
-    var templateData = fs.readFileSync('./example-data/emails/header-content/data.json', 'utf8');
+    var templateData = getTplData('./example-data/emails/default');
 
     return gulp.src('./templates/layouts/default.hbs')
-        .pipe($.compileHandlebars(JSON.parse(templateData), {
+        .pipe($.compileHandlebars(templateData, {
             batch: ['./templates/partials']
         }))
         .pipe($.extname('html'))
@@ -150,7 +147,7 @@ gulp.task('clean-dev', function(cb){
 // build
 gulp.task('clean-build', function(cb){
     return del([
-        'build/**/*.*'
+        'build/'
     ], cb);
 });
 

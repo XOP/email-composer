@@ -1,0 +1,31 @@
+{
+  "head": {},
+
+  "content": {
+    "is_top": false,
+
+    "is_logo": true,
+    "logo_src": "",
+    "logo_alt": "Company name",
+    "logo_width": "80",
+    "logo_height": "50",
+
+    "is_banner": false,
+    "banner_src": "",
+    "banner_alt": "",
+
+    "is_main_decor": false,
+    "decor_src": "",
+    "decor_alt": "",
+
+    "body_title": "Email title",
+    "body_text": "<p>Formatted content in body</p>",
+    "footer_text": "<p>Copyright and contact <a href='/' title=''>info</a></p>",
+
+    "button": {
+      "href": "http://absolute-path.for.the.win",
+      "title": "Button text",
+      "label": "Button text"
+    }
+  }
+}

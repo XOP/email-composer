@@ -1,32 +1,57 @@
 <table class="layout" align="center" cellpadding="0" cellspacing="0" border="0">
+
+    {{#is_top}}
     <tr class="layout-top">
         <td width="20" class="layout-top-l">&nbsp;</td>
         <td class="layout-top-c">&nbsp;</td>
         <td width="20" class="layout-top-r">&nbsp;</td>
     </tr>
-    <tr class="layout-img">
-        <td class="layout-img-c" colspan="3">
-            <img src="{{banner_src}}" width="560" height="280" alt="{{banner_alt}}" />
-        </td>
-    </tr>
+    {{/is_top}}
+
+    {{#is_logo}}
+        <tr class="layout-logo">
+            <td width="20" class="layout-top-l">&nbsp;</td>
+            <td class="layout-top-c">
+                <img src="{{log_src}}" width="{{logo_width}}" height="{{logo_height}}" alt="{{logo_alt}}" />
+            </td>
+            <td width="20" class="layout-top-r">&nbsp;</td>
+        </tr>
+    {{/is_logo}}
+
+    {{#is_banner}}
+        <tr class="layout-img">
+            <td class="layout-img-c" colspan="3">
+                <img src="{{banner_src}}" width="560" height="280" alt="{{banner_alt}}" />
+            </td>
+        </tr>
+    {{/is_banner}}
+
     <tr class="layout-main">
         <td width="20" class="layout-main-l">&nbsp;</td>
         <td class="layout-main-c">
             <table width="520" align="center" cellpadding="0" cellspacing="0" border="0">
+
+                {{#is_main_decor}}
                 <tr class="layout-dec">
                     <td class="layout-dec-c" colspan="3">
                         <img src="{{decor_src}}" width="520" height="20" alt="{{decor_alt}}" />
                     </td>
                 </tr>
+                {{/is_main_decor}}
+
                 <tr class="layout-body">
                     <td width="40" class="layout-body-l">&nbsp;</td>
                     <td class="layout-body-c">
+
+                        <!-- message title -->
                         <p class="lead-text">
                             {{body_title}}
                         </p>
 
+                        <!-- formatted content -->
                         {{{body_text}}}
 
+                        <!-- CTA -->
                         {{> button button}}
                     </td>
                     <td width="40" class="layout-body-r">&nbsp;</td>
@@ -35,14 +60,20 @@
         </td>
         <td width="20" class="layout-main-r">&nbsp;</td>
     </tr>
+
     <tr class="layout-hr">
         <td width="20" class="layout-hr-l">&nbsp;</td>
         <td class="layout-hr-c">&nbsp;</td>
         <td width="20" class="layout-hr-r">&nbsp;</td>
     </tr>
+
     <tr class="layout-foot">
         <td class="layout-foot-c" colspan="3">
+
+            <!-- formatted content -->
             {{{footer_text}}}
+
         </td>
     </tr>
+
 </table>
