@@ -1,3 +1,4 @@
+var fs = require('fs');
 var gulp = require('gulp');
 
 // auto-load gulp-* plugins
@@ -7,7 +8,6 @@ var $ = require('gulp-load-plugins')();
 // all others
 var del = require('del');
 var autoprefixer = require('autoprefixer-stylus');
-var assemble = require('assemble');
 
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
@@ -80,18 +80,17 @@ gulp.task('inline', ['inject'], function(cb){
 
 //
 // compile hbs templates
-gulp.task('render', function () {
-    // assemble setup
-    assemble.layouts('./templates/layouts/*.hbs');
-    assemble.partials('./templates/partials/*.hbs');
-    assemble.data(['./data/email/**/*.json']);
 
-    // render
-    gulp.src('./templates/email/*.hbs')
-        .pipe($.assemble(assemble, {
-            layout: 'default'
+//
+
+gulp.task('render', function () {
+    var templateData = fs.readFileSync('./example-data/emails/header-content/data.json', 'utf8');
+
+    return gulp.src('./templates/layouts/default.hbs')
+        .pipe($.compileHandlebars(JSON.parse(templateData), {
+            batch: ['./templates/partials']
         }))
-        .pipe($.extname())
+        .pipe($.extname('html'))
         .pipe(gulp.dest('public/'));
 });
 

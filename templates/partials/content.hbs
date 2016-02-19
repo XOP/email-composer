@@ -1,0 +1,48 @@
+<table class="layout" align="center" cellpadding="0" cellspacing="0" border="0">
+    <tr class="layout-top">
+        <td width="20" class="layout-top-l">&nbsp;</td>
+        <td class="layout-top-c">&nbsp;</td>
+        <td width="20" class="layout-top-r">&nbsp;</td>
+    </tr>
+    <tr class="layout-img">
+        <td class="layout-img-c" colspan="3">
+            <img src="{{banner_src}}" width="560" height="280" alt="{{banner_alt}}" />
+        </td>
+    </tr>
+    <tr class="layout-main">
+        <td width="20" class="layout-main-l">&nbsp;</td>
+        <td class="layout-main-c">
+            <table width="520" align="center" cellpadding="0" cellspacing="0" border="0">
+                <tr class="layout-dec">
+                    <td class="layout-dec-c" colspan="3">
+                        <img src="{{decor_src}}" width="520" height="20" alt="{{decor_alt}}" />
+                    </td>
+                </tr>
+                <tr class="layout-body">
+                    <td width="40" class="layout-body-l">&nbsp;</td>
+                    <td class="layout-body-c">
+                        <p class="lead-text">
+                            {{body_title}}
+                        </p>
+
+                        {{{body_text}}}
+
+                        {{> button button}}
+                    </td>
+                    <td width="40" class="layout-body-r">&nbsp;</td>
+                </tr>
+            </table>
+        </td>
+        <td width="20" class="layout-main-r">&nbsp;</td>
+    </tr>
+    <tr class="layout-hr">
+        <td width="20" class="layout-hr-l">&nbsp;</td>
+        <td class="layout-hr-c">&nbsp;</td>
+        <td width="20" class="layout-hr-r">&nbsp;</td>
+    </tr>
+    <tr class="layout-foot">
+        <td class="layout-foot-c" colspan="3">
+            {{{footer_text}}}
+        </td>
+    </tr>
+</table>

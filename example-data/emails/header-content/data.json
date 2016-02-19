@@ -1,0 +1,20 @@
+{
+  "head": {},
+
+  "content": {
+    "banner_src": "",
+    "banner_alt": "",
+    "decor_src": "",
+    "decor_alt": "",
+    "body_title": "",
+
+    "body_text": "Main content in body",
+    "footer_text": "Some text in footer",
+
+    "button": {
+      "href": "http://absolute-path.for.the.win",
+      "title": "Button text",
+      "label": "Button text"
+    }
+  }
+}
