@@ -16,7 +16,7 @@ var path = require('path');
 var colors = require('colors');
 var info = console.info;
 
-var config = require('./config.json');
+var config = require('./config');
 
 //
 // express
