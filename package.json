@@ -25,7 +25,7 @@
     "skeleton.css": "^2.0.4"
   },
   "devDependencies": {
-    "autoprefixer-stylus": "^0.5.0",
+    "autoprefixer": "^6.3.3",
     "browser-sync": "^2.6.4",
     "del": "^1.1.1",
     "gulp": "^3.9.1",
@@ -38,11 +38,14 @@
     "gulp-inline-css": "^2.0.0",
     "gulp-load-plugins": "^0.10.0",
     "gulp-plumber": "^1.0.1",
+    "gulp-postcss": "^6.1.0",
     "gulp-replace-task": "^0.2.3",
+    "gulp-sass": "^2.2.0",
     "gulp-stylus": "^2.0.1",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.5",
     "gulp-zip": "^3.0.2",
+    "postcss-scss": "^0.1.5",
     "run-sequence": "^1.1.0"
   }
 }

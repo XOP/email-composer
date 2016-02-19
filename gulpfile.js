@@ -8,33 +8,29 @@ var $ = require('gulp-load-plugins')();
 // all others
 var getTplData = require('./getTplData');
 var del = require('del');
-var autoprefixer = require('autoprefixer-stylus');
-
 var browserSync = require('browser-sync');
+
 var reload = browserSync.reload;
 var runSequence = require('run-sequence');
-
 var config = require('./config.json');
+
 var paths = config.paths;
 var production = $.util.env.p || $.util.env.prod;
 
-// autoprefixer settings
+// postcss settings
+var autoprefixer = require('autoprefixer');
 var Browsers = config.browsers;
-
-var stylusOptions = {
-    use: [autoprefixer({browsers: Browsers})],
-    paths: [paths.css.src],
-    import: ['_vars'],
-    compress: !!production
-};
 
 
 //
 // styles
 gulp.task('styles', function () {
-    return gulp.src([ paths.css.src + '/main.styl' ])
+    return gulp.src(paths.css.src + '/main.scss')
         .pipe($.plumber())
-        .pipe($.stylus(stylusOptions))
+        .pipe($.sass())
+        .pipe($.postcss([
+            autoprefixer({ browsers: Browsers })
+        ]))
         .pipe(gulp.dest(paths.css.dest));
 });
 

@@ -7,9 +7,9 @@
 body {
     padding: 0;
     margin: 0;
-    min-width: 100%!important;
+    min-width: 100% !important;
     background-color: $bg-body;
-    }
+}
 
 table {
     border-spacing: 0;
@@ -18,17 +18,17 @@ table {
     padding: 0;
     font-family: $ff;
     color: $c-main;
-    }
+}
 
-    td {
-        padding: 0;
-        border: 0;
-        }
+td {
+    padding: 0;
+    border: 0;
+}
 
 img {
     display: block;
     border: 0;
-    }
+}
 
 /* /Reset */
 
@@ -42,21 +42,21 @@ img {
 
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-    }
+}
 
 .webkit {
     max-width: $mw + $grid * 2;
-    }
+}
 
 .outer {
     margin: 0 auto;
     width: 100%;
     max-width: $mw + $grid * 2;
-    }
+}
 
 .content {
     padding: $grid*2 $grid;
-    }
+}
 
 /* /Layout */
 
@@ -72,11 +72,10 @@ a {
     -webkit-text-size-adjust: none;
     text-decoration: none !important;
 
-
     & > span {
         color: $c-brand;
-        }
     }
+}
 
 /* /Links */
 
@@ -96,8 +95,8 @@ p {
 
     &.lead-text {
         font-size: $fs-l;
-        }
     }
+}
 
 /* /Text */
 
@@ -107,35 +106,34 @@ p {
 
 .button {
     text-align: center;
-    }
+}
 
-    .button-cnt {
-        margin: 0 auto;
+.button-cnt {
+    margin: 0 auto;
 
-        a {
-            display: inline-block;
+    a {
+        display: inline-block;
 
-            border-radius: 3px;
-            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .8);
+        border-radius: 3px;
+        box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .8);
 
-            border-top: $line solid $bg-special;
-            border-bottom: $line solid $bg-special;
-            border-right: $line*3 solid $bg-special;
-            border-left: $line*3 solid $bg-special;
+        border-top: $line solid $bg-special;
+        border-bottom: $line solid $bg-special;
+        border-right: $line*3 solid $bg-special;
+        border-left: $line*3 solid $bg-special;
 
-            background-color: $bg-special;
-            font-size: $fs-l;
-            font-family: $ff;
+        background-color: $bg-special;
+        font-size: $fs-l;
+        font-family: $ff;
+        color: $c-inv;
+        text-decoration: none !important;
+        cursor: pointer;
+
+        & > span {
             color: $c-inv;
-            text-decoration: none !important;
-            cursor: pointer;
-
-
-            & > span {
-                color: $c-inv;
-                }
-            }
         }
+    }
+}
 
 /* /Button */
 
