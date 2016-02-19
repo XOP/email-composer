@@ -104,11 +104,9 @@ gulp.task('images', function(){
 // html minify
 gulp.task('minify', function(){
     return gulp.src('./build/*.html')
-        .pipe($.minifyHtml({
-            conditionals: true,
-            empty: true,
-            quotes: true,
-            spare: true
+        .pipe($.htmlmin({
+            removeComments: true,
+            collapseWhitespace: true
         }))
         .pipe(gulp.dest('build/'));
 });
